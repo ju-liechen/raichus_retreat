@@ -10,6 +10,8 @@ import environ
 
 APP_VERSION = 'v0.0.1'
 MIN_PASSWORD_LENGTH = 8
+LOGIN_REDIRECT = 'blog:index'
+LOGOUT_REDIRECT = 'blog:index'
 SEND_EMAILS = False  # When false, prints out what would have been sent
 
 # ==================================================================================================
