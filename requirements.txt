@@ -1,0 +1,10 @@
+Django
+django-environ
+django-extensions
+django-htmx
+psycopg2
+redis[hiredis]
+requests
+uvicorn
+watchfiles
+whitenoise
