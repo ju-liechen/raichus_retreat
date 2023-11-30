@@ -1,6 +1,9 @@
 {% extends 'layout.html' %}
 {% block content %}
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
+  <h1 class="text-3xl font-bold">
+    Quick Links
   </h1>
+  <nav>
+    <a class="underline" href="{% url 'blog:posts' %}">Raichu's Thoughts</a>
+  </nav>
 {% endblock %}

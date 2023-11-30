@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <h1 class="text-3xl font-bold">Raichu's Thoughts</h1>
+
+  {% if error %}
+    <p class="text-red-500">{{ error }}</p>
+  {% endif %}
+
+  <div id="post-container">
+    {% for post in posts %}
+    <div class="post">
+        <h2 class="text-xl font-bold">{{ post.title }}</h2>
+
+        <!-- Post details -->
+        <div id="details-{{ post.id }}"></div>
+
+        <!-- See More button for each post -->
+        <button hx-get="/post/{{ post.id }}/more" 
+                hx-trigger="click" 
+                hx-target="#details-{{ post.id }}" 
+                hx-swap="outerHTML">
+            See More
+        </button>
+
+    </div>
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+  </div>
+
+{% endblock %}

@@ -8,10 +8,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
   <script src="{% static 'app.js' %}"></script>
+  <script src="https://unpkg.com/htmx.org"></script>
 </head>
 <body class="p-4">
   <div class="container mx-auto md:w-1/2">
     <nav>
+      <a href="{% url 'blog:index' %}">Home</a>
       {% if user.is_authenticated %}
         <a href="{% url 'user:logout' %}">Logout</a>
       {% else %}
