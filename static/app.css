@@ -1,3 +1,7 @@
 button {
     font-style: italic;
 }
+
+#post-container {
+    padding-bottom: 100px;
+  }

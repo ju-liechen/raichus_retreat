@@ -7,25 +7,34 @@
   {% endif %}
 
   <div id="post-container">
-    {% for post in posts %}
-    <div class="post">
-        <h2 class="text-xl font-bold">{{ post.title }}</h2>
-
-        <!-- Post details -->
-        <div id="details-{{ post.id }}"></div>
-
-        <!-- See More button for each post -->
-        <button hx-get="/post/{{ post.id }}/more" 
-                hx-trigger="click" 
-                hx-target="#details-{{ post.id }}" 
-                hx-swap="outerHTML">
-            See More
-        </button>
-
-    </div>
-    {% empty %}
-        <p>No posts available.</p>
-    {% endfor %}
+    {% include "blog/post_list.html" %}
   </div>
+
+  {% if user.is_authenticated %}
+    {% if user.is_admin %}
+      <div>
+        <h2 class="text-xl font-bold">Create a new post</h2>
+        <form id="post-form">
+          {% csrf_token %}
+          <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+          </div>
+          <div>
+            <label for="body">Body:</label>
+            <textarea id="body" name="body" required></textarea>
+          </div>
+          <div>
+            <label for="category">Category:</label>
+            <textarea id="category" name="category" required></textarea>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" hx-post="{% url 'blog:posts' %}"  hx-target="#post-container" hx-include="#post-form">Publish</button>
+        </form>
+      </div>
+    {% endif %}
+  {% else %}
+    <h1 class="text-3xl font-bold">Pika Pika!</h1>
+  {% endif %}
 
 {% endblock %}
