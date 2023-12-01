@@ -6,31 +6,14 @@
     <p class="text-red-500">{{ error }}</p>
   {% endif %}
 
-  <div id="post-container">
+  <div id="post-list-container">
     {% include "blog/post_list.html" %}
   </div>
 
   {% if user.is_authenticated %}
     {% if user.is_admin %}
-      <div>
-        <h2 class="text-xl font-bold">Create a new post</h2>
-        <form id="post-form">
-          {% csrf_token %}
-          <div>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
-          </div>
-          <div>
-            <label for="body">Body:</label>
-            <textarea id="body" name="body" required></textarea>
-          </div>
-          <div>
-            <label for="category">Category:</label>
-            <textarea id="category" name="category" required></textarea>
-          </div>
-          <!-- Submit button -->
-          <button type="submit" hx-post="{% url 'blog:posts' %}"  hx-target="#post-container" hx-include="#post-form">Publish</button>
-        </form>
+      <div id="post-create-container">
+        {% include "blog/post_create.html" %}
       </div>
     {% endif %}
   {% else %}
