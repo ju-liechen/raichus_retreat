@@ -1,20 +1,20 @@
 <div>
     <h2 class="text-xl font-bold">Create a new post</h2>
-    <form id="post-form">
+    <form id="post-form" class="form">
       {% csrf_token %}
-      <div>
+      <div class="input-div">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
       </div>
-      <div>
+      <div class="input-div">
         <label for="body">Body:</label>
         <textarea id="body" name="body" required></textarea>
       </div>
-      <div>
+      <div class="input-div">
         <label for="category">Category:</label>
         <textarea id="category" name="category" required></textarea>
       </div>
       <!-- Submit button -->
-      <button type="submit" hx-post="{% url 'blog:posts' %}"  hx-target="#post-list-container" hx-include="#post-form">Publish</button>
+      <button type="submit" hx-post="{% url 'blog:posts' %}" hx-target="#post-list-container" hx-include="#post-form" class="blue-button">Publish</button>
     </form>
 </div>

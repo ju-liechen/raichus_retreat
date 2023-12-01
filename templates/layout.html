@@ -5,12 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{% static 'app.css' %}" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
-  <script src="{% static 'app.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'bundle.css' %}">
   <script src="https://unpkg.com/htmx.org"></script>
 </head>
-<body class="p-4">
+<body class="p-4 bg-lightest-blue">
   <div class="container mx-auto md:w-1/2">
     <nav>
       <a href="{% url 'blog:index' %}">Home</a>
@@ -23,6 +21,5 @@
     </nav>
     {% block content %}{% endblock %}
   </div>
-  <script>sayHello();</script> 
 </body>
 </html>

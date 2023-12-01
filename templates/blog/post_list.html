@@ -8,12 +8,14 @@
         <!-- See More button for each post -->
         <button hx-get="/post/{{ post.id }}" 
                 hx-trigger="click" 
-                hx-target="#details-{{ post.id }}">
+                hx-target="#details-{{ post.id }}"
+                class="blue-button">
             See More
         </button>
     </div>
 
 </div>
-{% empty %}
-    <p>No posts available</p>
 {% endfor %}
+{% if not posts %}
+    <p>No posts available</p>
+{% endif %}
