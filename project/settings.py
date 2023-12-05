@@ -198,3 +198,14 @@ CACHES = {
 }
 if REDIS_IS_TLS:
     CACHES['default']['OPTIONS'] = {'ssl_cert_reqs': None}
+
+# ==================================================================================================
+# PLAID
+# ==================================================================================================
+
+PLAID_CLIENT_NAME = 'Raichu'
+PLAID_COUNTRY_CODES = ['US', 'CA']
+PLAID_PRODUCTS = ['transactions']
+PLAID_CLIENT_ID = os.environ.get('PLAID_CLIENT_ID')
+PLAID_SECRET = os.environ.get('PLAID_SECRET')
+PLAID_LANG = 'en'

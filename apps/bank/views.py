@@ -1,8 +1,15 @@
-from django.http import HttpResponse
+import logging
+
+from django.http import HttpResponse, QueryDict
+from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.views.generic import ListView
 
 from .models import Account, TransactionCategory
+from .plaid import get_link_token
+from .services import import_plaid_account
+
+log = logging.getLogger(__name__)
 
 
 class BankDashboardView(ListView):
@@ -26,3 +33,26 @@ class BankDashboardView(ListView):
             html = render_to_string('bank/dashboard.html', context, request)
             return HttpResponse(html)
         return self.render_to_response(context)
+
+    def put(self, request, *args, **kwargs):
+        """
+        Triggered at the end of the Plaid connection flow. Called from app.js.
+        """
+        public_token = QueryDict(request.body).get('public_token', '').strip()
+        import_plaid_account(request.user, public_token)
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
+
+def clear_link_token(request):
+    if 'link_token' in request.session:
+        del request.session['link_token']
+    return HttpResponse()
+
+
+def plaid_connect(request):
+    try:
+        request.session['link_token'] = get_link_token(request.user.id)
+    except Exception as e:
+        log.error(e)
+    return render(request, 'bank/welcome.html')
