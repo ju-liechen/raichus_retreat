@@ -5,9 +5,8 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
-
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -29,15 +28,16 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
 
-@property
-def comment_count(self):
-    return self.comments.count()
+    @property
+    def comment_count(self):
+        return self.comments.count()
 
-
-@property
-def like_count(self):
-    return self.likes.count()
+    @property
+    def like_count(self):
+        return self.likes.count()
 
 
 class Comment(models.Model):

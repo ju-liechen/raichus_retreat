@@ -1,0 +1,21 @@
+{% for post in posts %}
+<div class="post">
+    <h2 class="text-xl font-bold">{{ post.title }}</h2>
+
+    <!-- Post details -->
+    <div id="details-{{ post.id }}">
+
+        <!-- See More button for each post -->
+        <button hx-get="/post/{{ post.id }}" 
+                hx-trigger="click" 
+                hx-target="#details-{{ post.id }}"
+                class="blue-button">
+            See More
+        </button>
+    </div>
+
+</div>
+{% endfor %}
+{% if not posts %}
+    <p>No posts available</p>
+{% endif %}

@@ -1,1 +1,25 @@
-/** styles here **/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.blue-button {
+  font-style: italic;
+  @apply text-medium-blue;
+}
+
+.create-container {
+  padding-block: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.input-div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

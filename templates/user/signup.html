@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <h1 class="text-3xl font-bold underline">Signup</h1>
+
+  {% if error %}
+    <p class="text-red-500">{{ error }}</p>
+  {% endif %}
+
+  <form method="post" action="{% url 'user:signup' %}">
+    {% csrf_token %}
+    <input type="text" name="email" placeholder="Email" />
+    <input type="password" name="password" placeholder="Password" />
+    <button type="submit">Signup</button>
+  </form>
+{% endblock %}

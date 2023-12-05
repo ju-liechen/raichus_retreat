@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'app.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'bundle.css' %}">
+  <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body class="p-4 bg-lightest-blue">
+  <div class="container mx-auto md:w-1/2">
+    <nav>
+      <a href="{% url 'blog:index' %}">Home</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'user:logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'user:login' %}">Login</a>
+        <a href="{% url 'user:signup' %}">Signup</a>
+      {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
