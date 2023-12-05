@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="flex flex-col gap-12">
+    <h1 class="text-3xl font-bold">Banking Dashboard</h1>
+
+    {% if user.item %}
+    <div id="spending-container">
+        {% include "bank/spending.html" %}
+    </div>
+    {% else %}
+    <div id="welcome-container">
+        {% include "bank/welcome.html" %}
+    </div>
+    {% endif %}
+
+    <div id="tag-container">
+        <h2 class="text-2xl font-bold">Spending by Tags</h1>
+        {% include "bank/tag_list.html" %}
+    </div>
+
+    <div id="account-container">
+        <h2 class="text-2xl font-bold">Accounts</h1>
+        {% include "bank/account_list.html" %}
+    </div>
+</div>
+{% endblock %}

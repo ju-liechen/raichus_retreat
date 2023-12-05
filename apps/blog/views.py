@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.shortcuts import render
-from django.urls import reverse
-from django.views.generic import DetailView, ListView, CreateView
+from django.views.generic import DetailView, ListView
 
 from .models import Category, Post
 

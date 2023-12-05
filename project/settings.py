@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django_htmx',
 
     'apps.user',
+    'apps.bank',
     'apps.blog',
 ]
 
