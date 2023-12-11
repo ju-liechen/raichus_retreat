@@ -3,16 +3,20 @@ module.exports = {
   content: ["./static/**/*.js", "./templates/**/*.html"],
   theme: {
     extend: {
-    colors: {
-      'lightest-blue': '#e6f7ff',
-      'light-blue': '#99dfff',
-      'medium-blue': '#4dc6ff',
-      'dark-blue': '#009de6',
-      'darkest-blue': '#004666',
-      'navy-blue': '#002333',
-      'black': '#000000',
-      'white': '#FFFFFF'
-    },
+      colors: {
+        'lightest-blue': '#D2E1FF',
+        'light-blue': '#A5C3FF',
+        'medium-blue': '#0C3D9D',
+        'dark-blue': '#012873',
+        'dark-orange': '#842A00',
+        'orange': '#FFA15E',
+        'light-orange': '#FFD0AE',
+        'light-grey': '#F0EFE9',
+        'dark-grey': '#575764',
+        'black': '#000000',
+        'white': '#FFFFFF',
+        'error-red': '#FF7E86',
+      },
     },
   },
   plugins: [],

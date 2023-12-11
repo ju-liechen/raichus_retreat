@@ -1,10 +1,12 @@
 {% extends 'layout.html' %}
 {% block content %}
+<div>
   <h1 class="text-3xl font-bold">
     Quick Links
   </h1>
   <ul>
     <li><a class="underline" href="{% url 'blog:posts' %}">Raichu's Thoughts</a></li>
     <li><a class="underline" href="{% url 'bank:bank_dashboard' %}">Banking</a></li>
-  </ul> 
+  </ul>
+</div>
 {% endblock %}

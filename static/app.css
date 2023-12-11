@@ -23,3 +23,54 @@
   align-items: center;
   gap: 5px;
 }
+
+.nav-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 272px;
+  height: 95vh;
+  min-height: 500px;
+  margin-right: 150px;
+  padding: 40px 24px 40px 24px;
+
+  background-color: white;
+}
+
+.nav-bar-title {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-size: medium;
+  @apply text-dark-grey
+}
+
+.nav-button {
+  border-radius: 12px;
+  width: 100%;
+  padding: 9px, 16px, 9px, 16px
+  text-align: left;
+
+  transition: 1s ease-in-out;
+
+  &:hover {
+    @apply bg-light-blue text-black;
+  }
+}
+
+.nav-account {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+
+  font-size: small;
+  @apply text-dark-grey
+}
