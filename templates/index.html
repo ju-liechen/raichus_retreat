@@ -3,7 +3,8 @@
   <h1 class="text-3xl font-bold">
     Quick Links
   </h1>
-  <nav>
-    <a class="underline" href="{% url 'blog:posts' %}">Raichu's Thoughts</a>
-  </nav>
+  <ul>
+    <li><a class="underline" href="{% url 'blog:posts' %}">Raichu's Thoughts</a></li>
+    <li><a class="underline" href="{% url 'bank:bank_dashboard' %}">Banking</a></li>
+  </ul> 
 {% endblock %}

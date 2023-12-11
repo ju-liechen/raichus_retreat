@@ -1,0 +1,8 @@
+{% for tag in tags %}
+<div class="tag">
+    <h2>{{ tag.name }}</h2>
+</div>
+{% endfor %}
+{% if not tags %}
+    <p>No tags created</p>
+{% endif %}

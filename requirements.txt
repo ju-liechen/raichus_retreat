@@ -2,6 +2,7 @@ Django
 django-environ
 django-extensions
 django-htmx
+plaid-python
 psycopg2
 redis[hiredis]
 requests

@@ -1,0 +1,15 @@
+{% load static %}
+<div class="welcome-message">
+    <button
+        id="connect-plaid-link"
+        style="border: 1px solid black; border-radius: 5px; padding: 5px;"
+        hx-get="{% url 'bank:plaid-connect' %}"
+        hx-trigger="click"
+    >Connect to your bank account here</button>
+</div>
+
+{% if request.session.link_token %}
+    <script>
+        openLink('{{ request.session.link_token }}', '{{ csrf_token }}');
+    </script>
+{% endif %}
