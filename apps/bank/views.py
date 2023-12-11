@@ -18,12 +18,13 @@ class BankDashboardView(ListView):
     context_object_name = 'accounts'
 
     def get_queryset(self):
-        return Account.objects.all()
+        return Account.objects.filter(item__user=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
-        context['tags'] = TransactionCategory.objects.all()
+        context['tags'] = TransactionCategory.objects.filter(
+            transaction__account__item__user=self.request.user)
         return context
 
     def get(self, request, *args, **kwargs):

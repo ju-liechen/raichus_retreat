@@ -1,26 +1,30 @@
 {% extends 'layout.html' %}
 {% block content %}
 <div id="bank-dashboard" class="flex flex-col gap-12">
-    <h1 class="text-3xl font-bold">Banking Dashboard</h1>
-
     {% if user.item_set.all|length %}
-        <div id="spending-container">
-            {% include "bank/spending.html" %}
-        </div>
+    <div id="spending-container">
+        {% include "bank/spending.html" %}
+    </div>
     {% else %}
-        <div id="welcome-container">
-            {% include "bank/welcome.html" %}
-        </div>
+    <div id="welcome-container">
+        {% include "bank/welcome.html" %}
+    </div>
     {% endif %}
 
-    <div id="tag-container">
-        <h2 class="text-2xl font-bold">Spending by Tags</h1>
-        {% include "bank/tag_list.html" %}
-    </div>
+    <div class="banking-info">
+        <div id="tag-container" class="flex flex-col w-1/2 mr-5">
+            <h2 class="text-xl mb-4">Spending by Tags</h1>
+                <div class="tag-account-container">
+                    {% include "bank/tag_list.html" %}
+                </div>
+        </div>
 
-    <div id="account-container">
-        <h2 class="text-2xl font-bold">Accounts</h1>
-        {% include "bank/account_list.html" %}
+        <div id="account-container" class="flex flex-col w-1/2 ml-5">
+            <h2 class="text-xl mb-4">Accounts</h1>
+                <div class="tag-account-container">
+                    {% include "bank/account_list.html" %}
+                </div>
+        </div>
     </div>
 </div>
 {% endblock %}

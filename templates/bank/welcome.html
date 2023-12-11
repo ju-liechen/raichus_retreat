@@ -1,15 +1,14 @@
 {% load static %}
-<div class="welcome-message">
-    <button
-        id="connect-plaid-link"
-        style="border: 1px solid black; border-radius: 5px; padding: 5px;"
-        hx-get="{% url 'bank:plaid-connect' %}"
-        hx-trigger="click"
-    >Connect to your bank account here</button>
+<div class="bg-light-blue welcome-message">
+    <div class="bg-white w-316 h-70 rounded-2xl flex items-center justify-center">
+        <h1 class='font-bold text-xl text-center'>Welcome To Raichu's Banking!</h1>
+    </div>
+    <button id="connect-plaid-link" class="bg-black text-white w-350 pt-4 pb-4 rounded-2xl "
+        hx-get="{% url 'bank:plaid-connect' %}" hx-trigger="click">Connect to your bank account here</button>
 </div>
 
 {% if request.session.link_token %}
-    <script>
-        openLink('{{ request.session.link_token }}', '{{ csrf_token }}');
-    </script>
+<script>
+    openLink('{{ request.session.link_token }}', '{{ csrf_token }}');
+</script>
 {% endif %}

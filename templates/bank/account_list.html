@@ -1,10 +1,8 @@
 {% for account in accounts %}
 <div class="post">
-    <h2 class="text-xl font-bold">{{ account.name }}</h2>
-    <p>{{ account.plaid_id}}</p>
-    <p>Active? {{ account.is_active}}</p>
+    <h2 class="text-xl">{{ account.name }}</h2>
 </div>
 {% endfor %}
 {% if not accounts %}
-    <p>No accounts connected</p>
+<p>No accounts connected</p>
 {% endif %}

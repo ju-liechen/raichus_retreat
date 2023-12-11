@@ -55,7 +55,7 @@
 .nav-button {
   border-radius: 12px;
   width: 100%;
-  padding: 9px, 16px, 9px, 16px
+  padding: 15px;
   text-align: left;
 
   transition: 1s ease-in-out;
@@ -73,4 +73,33 @@
 
   font-size: small;
   @apply text-dark-grey
+}
+
+.custom-gap-55 {
+  gap: 55px;
+}
+
+.tag-account-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 8px 11px 8px 11px;
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  min-width: 700px;
+  padding: 54px 200px 54px 200px;
+  gap: 54px;
+}
+
+.banking-info {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 50vw;
+  min-width: 700px;
 }

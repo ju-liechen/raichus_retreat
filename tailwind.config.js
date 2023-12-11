@@ -17,6 +17,11 @@ module.exports = {
         'white': '#FFFFFF',
         'error-red': '#FF7E86',
       },
+      spacing: {
+        '350': '350px',
+        '316': '316px',
+        '70': '70px',
+      },
     },
   },
   plugins: [],
